@@ -1,0 +1,218 @@
+/* ==============================
+   FreeMD Global Styles
+   ============================== */
+
+/* 共享 Markdown 排版（应用内与导出复用） */
+@import './markdown-base.css';
+
+/* CSS Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  height: 100vh;
+}
+
+/* ==============================
+   Theme Variables - Light（单一令牌来源，含工具栏/状态栏等 UI 令牌）
+   ============================== */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f8fa;
+  --bg-tertiary: #f0f1f3;
+  --bg-code: #f6f8fa;
+  --bg-blockquote: #f9f9fb;
+  --bg-table-hover: #f6f8fa;
+  --bg-table-header: #f0f1f3;
+
+  --bg-toolbar: #f7f8fa;
+  --bg-statusbar: #f0f1f3;
+  --bg-button: #e8eaed;
+  --bg-hover: rgba(0, 0, 0, 0.06);
+  --bg-active: #ffffff;
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #6a737d;
+  --text-tertiary: #959da5;
+  --text-code: #c2410c;
+
+  --border-color: #e1e4e8;
+  --border-light: #eaecef;
+
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --link-color: #0366d6;
+  --danger-color: #dc2626;
+  --success-color: #16a34a;
+  --warning-color: #d97706;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+  --selection-bg: rgba(37, 99, 235, 0.15);
+  --bg-mark: rgba(255, 213, 79, 0.4);
+  --text-mark: #5c4500;
+  --bg-inline-code: rgba(175, 184, 193, 0.2);
+  --accent-soft-bg: rgba(37, 99, 235, 0.1);
+}
+
+/* ==============================
+   Theme Variables - Dark
+   ============================== */
+[data-theme="dark"] {
+  --bg-primary: #1a1b26;
+  --bg-secondary: #16161e;
+  --bg-tertiary: #1f2335;
+  --bg-code: #1f2335;
+  --bg-blockquote: #1f2335;
+  --bg-table-hover: #1f2335;
+  --bg-table-header: #16161e;
+
+  --bg-toolbar: #1a1b26;
+  --bg-statusbar: #16161e;
+  --bg-button: #16161e;
+  --bg-hover: rgba(255, 255, 255, 0.08);
+  --bg-active: #2a2e3f;
+
+  --text-primary: #c0caf5;
+  --text-secondary: #7e89a8;
+  --text-tertiary: #565f89;
+  --text-code: #ff9e64;
+
+  --border-color: #2a2e3f;
+  --border-light: #1f2335;
+
+  --accent-color: #7aa2f7;
+  --accent-hover: #89b4fa;
+  --link-color: #7aa2f7;
+  --danger-color: #f7768e;
+  --success-color: #9ece6a;
+  --warning-color: #e0af68;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+
+  --selection-bg: rgba(122, 162, 247, 0.25);
+  --bg-mark: rgba(230, 193, 105, 0.25);
+  --text-mark: #e6c169;
+  --bg-inline-code: rgba(255, 158, 100, 0.1);
+  --accent-soft-bg: rgba(122, 162, 247, 0.12);
+}
+
+/* ==============================
+   highlight.js Syntax Highlighting
+   ============================== */
+
+/* Light theme (GitHub) */
+[data-theme="light"] .hljs {
+  color: #24292e;
+  background: transparent;
+}
+[data-theme="light"] .hljs-comment,
+[data-theme="light"] .hljs-quote { color: #6a737d; font-style: italic; }
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-selector-tag,
+[data-theme="light"] .hljs-subst { color: #d73a49; }
+[data-theme="light"] .hljs-string,
+[data-theme="light"] .hljs-doctag,
+[data-theme="light"] .hljs-regexp { color: #032f62; }
+[data-theme="light"] .hljs-number,
+[data-theme="light"] .hljs-literal,
+[data-theme="light"] .hljs-variable,
+[data-theme="light"] .hljs-template-variable { color: #005cc5; }
+[data-theme="light"] .hljs-title,
+[data-theme="light"] .hljs-section,
+[data-theme="light"] .hljs-selector-id { color: #6f42c1; font-weight: 700; }
+[data-theme="light"] .hljs-type,
+[data-theme="light"] .hljs-class .hljs-title,
+[data-theme="light"] .hljs-built_in { color: #22863a; }
+[data-theme="light"] .hljs-tag,
+[data-theme="light"] .hljs-name,
+[data-theme="light"] .hljs-attribute { color: #22863a; }
+[data-theme="light"] .hljs-symbol,
+[data-theme="light"] .hljs-bullet,
+[data-theme="light"] .hljs-link { color: #9333ea; }
+[data-theme="light"] .hljs-deletion { color: #b31d28; background: #ffeef0; }
+[data-theme="light"] .hljs-addition { color: #22863a; background: #f0fff4; }
+[data-theme="light"] .hljs-emphasis { font-style: italic; }
+[data-theme="light"] .hljs-strong { font-weight: 700; }
+
+/* Dark theme (Tokyo Night) */
+[data-theme="dark"] .hljs {
+  color: #c0caf5;
+  background: transparent;
+}
+[data-theme="dark"] .hljs-comment,
+[data-theme="dark"] .hljs-quote { color: #565f89; font-style: italic; }
+[data-theme="dark"] .hljs-keyword,
+[data-theme="dark"] .hljs-selector-tag,
+[data-theme="dark"] .hljs-subst { color: #bb9af7; }
+[data-theme="dark"] .hljs-string,
+[data-theme="dark"] .hljs-doctag,
+[data-theme="dark"] .hljs-regexp { color: #9ece6a; }
+[data-theme="dark"] .hljs-number,
+[data-theme="dark"] .hljs-literal,
+[data-theme="dark"] .hljs-variable,
+[data-theme="dark"] .hljs-template-variable { color: #ff9e64; }
+[data-theme="dark"] .hljs-title,
+[data-theme="dark"] .hljs-section,
+[data-theme="dark"] .hljs-selector-id { color: #7aa2f7; font-weight: 700; }
+[data-theme="dark"] .hljs-type,
+[data-theme="dark"] .hljs-class .hljs-title,
+[data-theme="dark"] .hljs-built_in { color: #2ac3de; }
+[data-theme="dark"] .hljs-tag,
+[data-theme="dark"] .hljs-name,
+[data-theme="dark"] .hljs-attribute { color: #f7768e; }
+[data-theme="dark"] .hljs-symbol,
+[data-theme="dark"] .hljs-bullet,
+[data-theme="dark"] .hljs-link { color: #7dcfff; }
+[data-theme="dark"] .hljs-deletion { color: #f7768e; background: rgba(247,118,142,0.1); }
+[data-theme="dark"] .hljs-addition { color: #9ece6a; background: rgba(158,206,106,0.1); }
+[data-theme="dark"] .hljs-emphasis { font-style: italic; }
+[data-theme="dark"] .hljs-strong { font-weight: 700; }
+
+/* ==============================
+   Scrollbar
+   ============================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ==============================
+   Selection
+   ============================== */
+::selection {
+  background: var(--selection-bg);
+}

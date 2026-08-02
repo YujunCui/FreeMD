@@ -1,0 +1,100 @@
+{
+  "name": "freemd",
+  "version": "1.0.0",
+  "description": "FreeMD - An open-source WYSIWYG Markdown editor",
+  "author": "FreeMD Contributors",
+  "license": "MIT",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "build:all": "npm run build && npm run build:electron",
+    "electron:dev": "npm run build:electron && electron .",
+    "electron:build": "npm run build:all && electron-builder",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,vue,css}\" \"electron/**/*.ts\""
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.6.0",
+    "@codemirror/lang-markdown": "^6.2.5",
+    "@codemirror/language": "^6.10.0",
+    "@codemirror/language-data": "^6.4.1",
+    "@codemirror/search": "^6.5.6",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/view": "^6.24.0",
+    "@lezer/highlight": "^1.2.1",
+    "dompurify": "^3.4.12",
+    "highlight.js": "^11.9.0",
+    "katex": "^0.16.9",
+    "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/katex": "^0.16.7",
+    "@types/markdown-it": "^14.0.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "eslint": "^9.0.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^5.2.8",
+    "vite-plugin-electron": "^0.28.7",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vue-tsc": "^2.0.13"
+  },
+  "build": {
+    "appId": "io.github.freemd",
+    "productName": "FreeMD",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "build/**/*"
+    ],
+    "fileAssociations": [
+      {
+        "ext": ["md", "markdown", "txt"],
+        "name": "Markdown",
+        "description": "Markdown document",
+        "icon": "build/icon.ico",
+        "role": "Editor"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/icon.png"
+    }
+  }
+}
